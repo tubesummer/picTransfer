@@ -1,6 +1,7 @@
 package util;
 
-import com.alibaba.fastjson.JSONObject;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,7 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
-
 
 public class AuthService {
     /**
@@ -21,9 +21,9 @@ public class AuthService {
      */
     public static String getAuth() {
         // 官网获取的 API Key 更新为你注册的
-        String clientId = "mynOtW0dsg4KAxqXgWnO3DWi";
+        String clientId = "BoBfMB0YAmAYdVKaLwU1skgC";
         // 官网获取的 Secret Key 更新为你注册的
-        String clientSecret = "kuxHpi4KTnzj8gt7j2O6sWE7nB5wpAa5";
+        String clientSecret = "a1sRsoN2yhmkBvTVqmZQT3diVI8ujHqg";
         return getAuth(clientId, clientSecret);
     }
 
@@ -68,7 +68,7 @@ public class AuthService {
              * 返回结果示例
              */
             System.err.println("result:" + result);
-            JSONObject jsonObject = new JSONObject(Boolean.parseBoolean(result));
+            JSONObject jsonObject = new JSONObject(result);
             String access_token = jsonObject.getString("access_token");
             return access_token;
         } catch (Exception e) {
@@ -77,10 +77,4 @@ public class AuthService {
         }
         return null;
     }
-
-
-    public static void main(String[] args) {
-        getAuth();
-    }
-
 }

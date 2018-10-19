@@ -19,13 +19,15 @@ public class General {
      */
     public static void main(String[] args) {
         // 通用识别url
-        String otherHost = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic";
+        String otherHost = "https://aip.baidubce.com/rest/2.0/solution/v1/iocr/recognise";
         // 本地图片路径
-        String filePath = "D:\\dz.png";
+        String filePath = "D:\\11.png";
         try {
             byte[] imgData = FileUtil.readFileByBytes(filePath);
             String imgStr = Base64Util.encode(imgData);
-            String params = URLEncoder.encode("image", "UTF-8") + "=" + URLEncoder.encode(imgStr, "UTF-8");
+            String templateId = "66669901e55a39807964b385d134eb7e";
+            String params = URLEncoder.encode("image", "UTF-8") + "=" + URLEncoder.encode(imgStr, "UTF-8")+
+                   ";"+ URLEncoder.encode("templateSign", "UTF-8") + "=" + URLEncoder.encode(templateId, "UTF-8");
             /**
              * 线上环境access_token有过期时间， 客户端可自行缓存，过期后重新获取。
              */
